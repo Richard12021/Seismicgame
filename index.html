@@ -1242,8 +1242,8 @@
             currentTurn = 1;
             updateTurnIndicators();
             
-            // Increase difficulty
-            pointsTarget = Math.floor(POINTS_TARGET_INITIAL * level); // Linear increase with level
+            // Increase difficulty exponentially
+            pointsTarget = Math.floor(POINTS_TARGET_INITIAL * Math.pow(1.8, level - 1)); // Exponential increase with level
             obstacleSpeed = OBSTACLE_SPEED_INITIAL + (level - 1) * 0.5; // Linear increase with level
             obstacleSpawnRate = Math.max(OBSTACLE_SPAWN_RATE_INITIAL - (level - 1) * 200, 300); // Faster spawns with level
             gameTime = GAME_DURATION_INITIAL + (level - 1) * 10; // More time with each level
